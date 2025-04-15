@@ -9,7 +9,7 @@ function App() {
   const [candleOut, setCandleOut] = useState(false);
   const [showConfetti, setShowConfetti] = useState(false);
   useEffect(() => {
-    if (screen === 6 && candleOut) {
+    if (screen === 7 && candleOut) {
       setShowConfetti(true);
       const timer = setTimeout(() => setShowConfetti(false), 8000);
       return () => clearTimeout(timer);
@@ -26,7 +26,7 @@ function App() {
 
   const [fadeOut, setFadeOut] = useState(false);
 
-  const MAX_SCREEN = 7;
+  const MAX_SCREEN = 8;
 
 const handleNext = () => {
   if (screen < MAX_SCREEN) {
@@ -197,7 +197,7 @@ const handleNext = () => {
         <div className="overlay">
           <h1>Ton futur t’appelle 🐾</h1>
           <img
-            src="/vet.jpg"
+            src="/jeanne.jpg"
             alt="Illustration vétérinaire"
             style={{
               width: '280px',
@@ -212,14 +212,54 @@ const handleNext = () => {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button onClick={handleBack}>Retour ⬅️</button>
+            <button onClick={handleNext}>Une visite au musée 🎨</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  if (screen === 6) {
+    const driveLink = "https://drive.google.com/drive/folders/1-UPZC2pJPae41CClZa7J3JFCByRukfef?usp=drive_link";
+  
+    return (
+      <div className={className}>
+        <div className="overlay">
+          <h1>L’atelier de Jeanne 🎨</h1>
+          <img
+            src="/art.jpeg"
+            alt="Jeanne joue au tennis"
+            style={{
+              width: '300px',
+              borderRadius: '16px',
+              margin: '1rem 0',
+              boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+            }}
+          />
+  
+          <p className="text-bubble">
+            Un monde de couleurs, d’imagination, de moments capturés...  
+            Comme une fenêtre ouverte sur ton esprit 💚
+          </p>
+  
+          <p className="text-bubble">
+            Clique ici pour ouvrir ta galerie secrète 👇
+          </p>
+  
+          <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href={driveLink} target="_blank" rel="noopener noreferrer">
+              <button>Voir la galerie 🖼️</button>
+            </a>
+            <button onClick={handleBack}>Retour ⬅️</button>
             <button onClick={handleNext}>Un vœu à faire 🎇</button>
           </div>
         </div>
       </div>
     );
   }
+  
 
-  if (screen === 6) {
+
+  if (screen === 7) {
     return (
       <div className={className}>
         {showConfetti && <Confetti />}
@@ -306,7 +346,7 @@ const handleNext = () => {
     );
   }
 
-  if (screen === 7) {
+  if (screen === 8) {
     const mailToLink = `mailto:vmkrasovsky@yahoo.com?subject=Je%20veux%20sortir%20avec%20toi%20❤️&body=Oui%2C%20j’aimerais%20beaucoup%20qu’on%20sorte%20ensemble%20quand%20je%20reviens.%20`;
   
     return (
@@ -329,19 +369,8 @@ const handleNext = () => {
       </div>
     );
   }
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
-}
+  }
 
 export default App;
 

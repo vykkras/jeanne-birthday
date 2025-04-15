@@ -94,7 +94,7 @@ const handleNext = () => {
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             }}
           />
-          <p>
+          <p className="text-bubble">
             Elle m’a demandé de te rappeler de profiter de chaque seconde aujourd’hui. 
             Elle veut aussi plus de friandises.
           </p>
@@ -123,7 +123,7 @@ const handleNext = () => {
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             }}
           />
-          <p>
+          <p className="text-bubble">
             Tu pourrais me battre sans transpirer… même avec une raquette dans chaque main 😄
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
@@ -150,7 +150,7 @@ const handleNext = () => {
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             }}
           />
-          <p>
+          <p className="text-bubble">
             Elle ne demande pas de caresses, mais elle t’écoute.  
             C’est ton animal de compagnie botanique 🌱💚
           </p>
@@ -178,7 +178,7 @@ const handleNext = () => {
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             }}
           />
-          <p>
+          <p className="text-bubble">
             L’univers t’a tirée comme la carte du Soleil ☀️  
             Lumière, amour et renouveau... ça te ressemble bien, non ?
           </p>
@@ -206,7 +206,7 @@ const handleNext = () => {
               boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
             }}
           />
-          <p>
+          <p className="text-bubble">
             Des animaux heureux, des familles reconnaissantes, et toi au centre de tout ça.  
             C’est là que tu vas, Jeanne… et c’est magnifique.
           </p>
@@ -288,7 +288,7 @@ const handleNext = () => {
 </div>
 
   
-          <p>
+          <p className="text-bubble">
             Il te reste à souffler les bougies...  
             (et penser très fort à ce que tu veux 💫)
           </p>

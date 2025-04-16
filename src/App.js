@@ -127,7 +127,7 @@ const handleNext = () => {
             }}
           />
           <p className="text-bubble">
-          La force de continuer à jouer même en perdant 💪
+           Tu ne te rends jamais 💪
 
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>

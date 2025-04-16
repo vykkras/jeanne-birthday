@@ -21,6 +21,7 @@ function App() {
       setShowConfetti(false);
     }
   }, [screen, candleOut]);
+  
 
   
   
@@ -407,7 +408,7 @@ const handleNext = () => {
           ) : (
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
     <button onClick={handleBack}>Revoir 💚</button>
-    <button onClick={handleNext}>Une dernière chose... ✨</button>
+    <button onClick={handleNext}>Je suis terriblement désolé que tu aies dû écouter ça 🥲, mais une dernière chose... ✨</button>
   </div>
           )}
         </div>

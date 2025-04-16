@@ -270,64 +270,113 @@ const handleNext = () => {
           <h1>Joyeux anniversaire ! 🎂</h1>
   
           <div style={{ marginBottom: '2rem', height: '220px' }}>
-  {!candleOut ? (
-    <svg width="150" height="220" viewBox="0 0 150 220">
-      {/* Candle base */}
-      <rect x="70" y="120" width="10" height="60" fill="#ffcc99" rx="5" />
+          {!candleOut ? (
+  <svg width="150" height="220" viewBox="0 0 150 220">
+    {/* Cake base */}
+    <rect x="50" y="180" width="50" height="50" fill="#f3a6c8" rx="6" />
+    <rect x="50" y="175" width="50" height="10" fill="#fff0f5" rx="5" />
+    <circle cx="75" cy="172" r="3.5" fill="red" />
 
-      {/* Better flame — centered, softer shape */}
-      <polygon
-        points="75,105 68,85 82,85"
-        fill="#ff6600"
-      >
-        <animateTransform
-          attributeName="transform"
-          type="scale"
-          values="1;1.05;1"
-          dur="1s"
-          repeatCount="indefinite"
-          additive="sum"
-        />
-        <animate
-          attributeName="opacity"
-          values="1;0.6;1"
-          dur="1.2s"
-          repeatCount="indefinite"
-        />
-      </polygon>
-    </svg>
-  ) : (
-    <svg width="150" height="220" viewBox="0 0 150 220">
-      {/* Candle base */}
-      <rect x="70" y="120" width="10" height="60" fill="#ffcc99" rx="5" />
+    {/* Candle base */}
+    <rect x="70" y="120" width="10" height="60" fill="#ffcc99" rx="5" />
 
-      {/* Smoke puff — appears where flame was */}
-      <circle cx="75" cy="95" r="8" fill="gray" opacity="0.7">
-        <animate
-          attributeName="r"
-          from="8"
-          to="20"
-          dur="2s"
-          fill="freeze"
-        />
-        <animate
-          attributeName="opacity"
-          from="0.7"
-          to="0"
-          dur="2s"
-          fill="freeze"
-        />
-        <animateTransform
-          attributeName="transform"
-          type="translate"
-          from="0,0"
-          to="0,-20"
-          dur="2s"
-          fill="freeze"
-        />
-      </circle>
-    </svg>
-  )}
+    {/* Improved realistic flame */}
+    {/* Inner bright flame */}
+    <path 
+      d="M75 110 C80 90, 70 90, 75 70 C80 90, 70 90, 75 110"
+      fill="#ffcc00"
+    >
+      <animate 
+        attributeName="d"
+        values="
+          M75 110 C80 90, 70 90, 75 70 C80 90, 70 90, 75 110;
+          M75 110 C82 92, 68 88, 75 70 C82 92, 68 88, 75 110;
+          M75 110 C78 94, 72 92, 75 70 C78 94, 72 92, 75 110;
+          M75 110 C80 90, 70 90, 75 70 C80 90, 70 90, 75 110
+        "
+        dur="1.5s"
+        repeatCount="indefinite"
+      />
+    </path>
+    
+    {/* Middle flame layer */}
+    <path 
+      d="M75 110 C82 92, 68 92, 75 75 C82 92, 68 92, 75 110"
+      fill="#ff9900"
+      opacity="0.8"
+    >
+      <animate 
+        attributeName="d"
+        values="
+          M75 110 C82 92, 68 92, 75 75 C82 92, 68 92, 75 110;
+          M75 110 C85 95, 65 95, 75 75 C85 95, 65 95, 75 110;
+          M75 110 C80 96, 70 96, 75 75 C80 96, 70 96, 75 110;
+          M75 110 C82 92, 68 92, 75 75 C82 92, 68 92, 75 110
+        "
+        dur="1.8s"
+        repeatCount="indefinite"
+      />
+    </path>
+    
+    {/* Outer glow */}
+    <ellipse cx="75" cy="90" rx="12" ry="20" fill="#ff6600" opacity="0.4">
+      <animate 
+        attributeName="ry"
+        values="20;22;20;18;20"
+        dur="2s"
+        repeatCount="indefinite"
+      />
+      <animate 
+        attributeName="rx"
+        values="12;14;12;10;12"
+        dur="2.5s"
+        repeatCount="indefinite"
+      />
+    </ellipse>
+    
+    {/* Candle glow effect */}
+    <rect x="70" y="120" width="10" height="10" fill="#ffcc99" rx="5">
+      <animate 
+        attributeName="fill"
+        values="#ffcc99;#ffff99;#ffcc99"
+        dur="2s"
+        repeatCount="indefinite"
+      />
+    </rect>
+  </svg>
+) : (
+  <svg width="150" height="220" viewBox="0 0 150 220">
+    {/* Candle base */}
+    <rect x="70" y="120" width="10" height="60" fill="#ffcc99" rx="5" />
+
+    {/* Smoke puff — appears where flame was */}
+    <circle cx="75" cy="95" r="8" fill="gray" opacity="0.7">
+      <animate
+        attributeName="r"
+        from="8"
+        to="20"
+        dur="2s"
+        fill="freeze"
+      />
+      <animate
+        attributeName="opacity"
+        from="0.7"
+        to="0"
+        dur="2s"
+        fill="freeze"
+      />
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        from="0,0"
+        to="0,-20"
+        dur="2s"
+        fill="freeze"
+      />
+    </circle>
+  </svg>
+)}
+  
 </div>
 
   

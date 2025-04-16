@@ -21,6 +21,9 @@ function App() {
       setShowConfetti(false);
     }
   }, [screen, candleOut]);
+
+  
+  
   
   
 
@@ -71,7 +74,7 @@ const handleNext = () => {
       <div className={className}>
         <div className="overlay">
           <h1>Joyeux anniversaire, Jeanne ! 🎉</h1>
-          <p>Tu es un rayon de soleil 🌻</p>
+          <p>tu es le soleil ☀️</p>
           <button onClick={handleNext}>Clique ici pour continuer 😽</button>
         </div>
       </div>
@@ -83,7 +86,7 @@ const handleNext = () => {
     return (
       <div className={className}>
         <div className="overlay">
-          <h1>Voici Sansa 😸</h1>
+          <h1>Tu es sansa 😸</h1>
           <img
             src="/sansa.jpeg"
             alt="Sansa le chat"
@@ -95,12 +98,12 @@ const handleNext = () => {
             }}
           />
           <p className="text-bubble">
-            Elle m’a demandé de te rappeler de profiter de chaque seconde aujourd’hui. 
-            Elle veut aussi plus de friandises.
+            Beautiful, playful, and affectionate.
+            Elle veut aussi plus de friandises 😼.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button onClick={handleBack}>Retour ⬅️</button>
-            <button onClick={handleNext}>Prochaine surprise 🎾</button>
+            <button onClick={handleNext}>Balles et raquettes 🎾</button>
           </div>
         </div>
       </div>
@@ -112,7 +115,7 @@ const handleNext = () => {
     return (
       <div className={className}>
         <div className="overlay">
-          <h1>Sur le court... 🎾</h1>
+          <h1>Tu es un athlète 🎾</h1>
           <img
             src="/tennis.jpg"
             alt="Jeanne joue au tennis"
@@ -124,11 +127,12 @@ const handleNext = () => {
             }}
           />
           <p className="text-bubble">
-            Tu pourrais me battre sans transpirer… même avec une raquette dans chaque main 😄
+          La force de continuer à jouer même en perdant 💪
+
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button onClick={handleBack}>Retour ⬅️</button>
-            <button onClick={handleNext}>Encore un ! ☘️</button>
+            <button onClick={handleNext}>Un jardin ☘️</button>
           </div>
         </div>
       </div>
@@ -139,7 +143,7 @@ const handleNext = () => {
     return (
       <div className={className}>
         <div className="overlay">
-          <h1>Voici ta plante de compagnie 🌿</h1>
+          <h1>Tu es toutes vos plantes 🌿</h1>
           <img
             src="/mosntera.jpg"
             alt="Monstera plant"
@@ -151,12 +155,12 @@ const handleNext = () => {
             }}
           />
           <p className="text-bubble">
-            Elle ne demande pas de caresses, mais elle t’écoute.  
-            C’est ton animal de compagnie botanique 🌱💚
+            Vert, vivant, en quête du soleil 🌱
+            Pablo est ton animal de compagnie botanique 💚
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button onClick={handleBack}>Retour ⬅️</button>
-            <button onClick={handleNext}>Encore un peu 🧝‍♀️</button>
+            <button onClick={handleNext}>Une vision 🧝‍♀️</button>
           </div>
         </div>
       </div>
@@ -184,7 +188,7 @@ const handleNext = () => {
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button onClick={handleBack}>Retour ⬅️</button>
-            <button onClick={handleNext}>Une dernière vision 🪄</button>
+            <button onClick={handleNext}>L'avenir 🪄</button>
           </div>
         </div>
       </div>
@@ -207,12 +211,11 @@ const handleNext = () => {
             }}
           />
           <p className="text-bubble">
-            Des animaux heureux, des familles reconnaissantes, et toi au centre de tout ça.  
-            C’est là que tu vas, Jeanne… et c’est magnifique.
+          Tous les animaux seraient si heureux ! Ils savent qu'ils seront en bonne santé grâce à toi.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
             <button onClick={handleBack}>Retour ⬅️</button>
-            <button onClick={handleNext}>Une visite au musée 🎨</button>
+            <button onClick={handleNext}>L'atelier de Jeanne 🖼️</button>
           </div>
         </div>
       </div>
@@ -224,7 +227,7 @@ const handleNext = () => {
     return (
       <div className={className}>
         <div className="overlay">
-          <h1>L’atelier de Jeanne 🎨</h1>
+          <h1>Tu es de l'art 🎨</h1>
           <img
             src="/art.jpeg"
             alt="Jeanne joue au tennis"
@@ -329,12 +332,29 @@ const handleNext = () => {
 
   
           <p className="text-bubble">
-            Il te reste à souffler les bougies...  
-            (et penser très fort à ce que tu veux 💫)
+            Il te reste à souffler les bougies...  💫🎶
+            
           </p>
   
           {!candleOut ? (
-            <button onClick={() => setCandleOut(true)}>Souffle les bougies 🕯️</button>
+            <button
+            onClick={() => {
+              const audio = new Audio('/song.m4a');
+              audio.play()
+                .then(() => {
+                  setTimeout(() => {
+                    setCandleOut(true);
+                  }, 1000); // wait a moment before blowing the candle (optional)
+                })
+                .catch((e) => {
+                  console.log("Autoplay blocked or failed:", e);
+                  setCandleOut(true); // still blow candle even if audio doesn't work
+                });
+            }}
+          >
+            Souffle les bougies 🕯️
+          </button>
+          
           ) : (
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
     <button onClick={handleBack}>Revoir 💚</button>
@@ -347,7 +367,8 @@ const handleNext = () => {
   }
 
   if (screen === 8) {
-    const mailToLink = `mailto:vmkrasovsky@yahoo.com?subject=Je%20veux%20sortir%20avec%20toi%20❤️&body=Oui%2C%20j’aimerais%20beaucoup%20qu’on%20sorte%20ensemble%20quand%20je%20reviens.%20`;
+    const mailToLink = `mailto:vmkrasovsky@yahoo.com?subject=Avec%20plaisir%20!%20%3A)&body=N’oublie%20pas%20de%20me%20mettre%205%20étoiles%20%E2%AD%90%EF%B8%8F%20%F0%9F%98%9C`;
+
   
     return (
       <div className={className}>
@@ -361,7 +382,7 @@ const handleNext = () => {
               <button>Oui ☔️</button>
             </a>
             <a href={mailToLink}>
-              <button>Oui, bien sûr ! 🌟</button>
+              <button>Oui, bien sûr ! ☀️</button>
             </a>
             <button onClick={() => setScreen(0)}>Recommencer depuis le début 🔁</button>
           </div>

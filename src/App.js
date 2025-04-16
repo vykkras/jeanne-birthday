@@ -98,7 +98,7 @@ const handleNext = () => {
             }}
           />
           <p className="text-bubble">
-            Beautiful, playful, and affectionate.
+            Belle, joueuse et affectueuse.
             Elle veut aussi plus de friandises 😼.
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
